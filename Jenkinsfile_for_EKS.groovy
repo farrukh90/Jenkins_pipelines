@@ -13,9 +13,9 @@ node{
             sh "./terraform version"}
     }
     stage("Set Backend"){
-        ws {
+        ws ("terraform-iaac-eks-burak"){
             pwd()
-            sh "source terraform-iaac-eks-burak/setenv.sh terraform-iaac-eks-burak/configurations/dev/us-west-2/dev.tfvars"
+            sh "source setenv.sh configurations/dev/us-west-2/dev.tfvars"
         }
     }
     stage("stage1"){
