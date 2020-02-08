@@ -14,11 +14,7 @@ node{
     }
     stage("Set Backend"){
         ws ("tmp/"){
-            pwd()
-            sh "ls -l ${WORKSPACE}"
-            sh "ls -l ../"
-            sh "ls "
-            sh "./${WORKSPACE}/tmp/source setenv.sh configurations/dev/us-west-2/dev.tfvars"
+            sh "./terraform init "
         }
     }
     stage("stage1"){
