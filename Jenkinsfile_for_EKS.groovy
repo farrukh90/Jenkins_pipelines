@@ -18,7 +18,7 @@ node{
             sh "ls -l ${WORKSPACE}"
             sh "ls -l ../"
             sh "ls "
-            sh "./${WORKSPACE}/source setenv.sh configurations/dev/us-west-2/dev.tfvars"
+            sh "./${WORKSPACE}/tmp/source setenv.sh configurations/dev/us-west-2/dev.tfvars"
         }
     }
     stage("stage1"){
