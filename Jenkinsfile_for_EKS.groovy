@@ -15,9 +15,10 @@ node{
     stage("Set Backend"){
         ws ("tmp/"){
             pwd()
-            sh "ls -l"
+            sh "ls -l ${WORKSPACE}"
             sh "ls -l ../"
-            sh "source setenv.sh configurations/dev/us-west-2/dev.tfvars"
+            sh "ls "
+            sh "./${WORKSPACE}/source setenv.sh configurations/dev/us-west-2/dev.tfvars"
         }
     }
     stage("stage1"){
