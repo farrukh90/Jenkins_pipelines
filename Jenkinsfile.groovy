@@ -12,8 +12,6 @@ node {
         slackSend channel: 'nagios_alerts', message: 'Golden AMI has been built'
     }
     stage("Send Email"){
-        mail bcc: '', body: '''Hello, 
-            Your AMI is ready in us-east-1
-            Thanks''', cc: '', from: '', replyTo: '', subject: 'Golden AMI has been built', to: 'farrukh@gmail.com'
+        mail bcc: '', body: '''Hello, Your AMI is ready in us-east-1 Thanks''', cc: '', from: '', replyTo: '', subject: 'Golden AMI has been built', to: 'farrukh@gmail.com'
     }
 }
