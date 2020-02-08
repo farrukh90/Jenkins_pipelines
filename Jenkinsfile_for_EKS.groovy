@@ -8,8 +8,8 @@ node{
         sh "unzip terraform_0.12.19_linux_amd64.zip"
         sh "./terraform version"
     }
-    stage("stage1"){
-        echo "Hello"
+    stage("Set Backend"){
+        sh "source setenv.sh configurations/dev/us-west-2/dev.tfvars"
     }
     stage("stage1"){
         echo "Hello"
