@@ -14,7 +14,7 @@ node{
     }
     stage("Set Backend"){
         ws {
-            pws()
+            pwd()
             sh "source setenv.sh configurations/dev/us-west-2/dev.tfvars"
         }
     }
