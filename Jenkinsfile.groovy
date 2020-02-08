@@ -8,12 +8,18 @@ node {
     }
     stage("Build Image"){
         sh "packer version"
-        //sh "packer  build -var region=${AMI_REGION} tools/jenkins_example.json"
+        //sh "packer  build -var region=${AMI_REGION} tools/${TOOL_TO_PROVISION}.json"
     }
     stage("Send Notification to Slack"){
-        slackSend channel: 'nagios_alerts', message: 'Golden AMI has been built'
+        slackSend channel: 'nagios_alerts', message: "${TOOL_TO_PROVISION} has been built"
     }
     stage("Send Email"){
-        mail bcc: '', body: '''Hello, Your AMI is ready in us-east-1 Thanks''', cc: '', from: '', replyTo: '', subject: 'Golden AMI has been built', to: 'farrukh@gmail.com'
+        mail bcc: '', 
+        body: "Hello, Your AMI is ready in ${AMI_REGION} Thanks", 
+        cc: '', 
+        from: '', 
+        replyTo: '', 
+        subject: "${TOOL_TO_PROVISION} has been built", 
+        to: 'farrukh@gmail.com'
     }
 }
