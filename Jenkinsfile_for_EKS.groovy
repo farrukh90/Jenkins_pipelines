@@ -1,7 +1,6 @@
 node{
     properties(
         [
-        booleanParam(defaultValue: false, description: 'Should I apply? If yes click above', name: 'ACTION'),
         parameters([choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Please provide environment', name: 'ENVIR'), 
         choice(choices: ['us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'], description: 'Please provide a region', name: 'EKS_REGION'), 
         string(defaultValue: 'dev-test', description: 'Please provide a cluster name e.g  dev', name: 'CLUSTER_NAME', trim: false), 
