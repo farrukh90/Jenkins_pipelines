@@ -14,11 +14,12 @@ node{
     }
     stage("Set Backend"){
         ws ("tmp/"){
-            sh "./terraform init "
+            sh "./terraform init"
         }
     }
-    stage("stage1"){
-        echo "Hello"
-
+    stage("Plan"){
+        ws ("tmp/") {
+            sh "./terraform plan -var-file configurations/dev/us-west-2/dev.tfvars"
+        }
     }
 }
