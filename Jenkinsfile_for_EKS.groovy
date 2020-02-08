@@ -16,6 +16,7 @@ node{
         ws ("terraform-iaac-eks-burak"){
             pwd()
             sh "ls -l"
+            sh "ls -l ../"
             //sh "source setenv.sh configurations/dev/us-west-2/dev.tfvars"
         }
     }
