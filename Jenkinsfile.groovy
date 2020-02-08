@@ -1,5 +1,7 @@
 node {
-    properties([parameters([
+    properties(
+        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3'))
+        [parameters([
         choice(choices: [
             'golden_ami', 
             'tower', 
