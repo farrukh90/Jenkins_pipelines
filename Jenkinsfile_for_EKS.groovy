@@ -12,7 +12,7 @@ node{
     }
     stage("Download Terraform"){
         ws ("tmp/") {
-            def exists = fileExists 'terraform'
+            def exists = fileExists './terraform'
             if (exists) {
                 echo 'terraform exists'
             } else {
