@@ -3,10 +3,7 @@ node{
         [
         parameters([ 
         choice(choices: ['us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'], description: 'Please provide a region', name: 'EKS_REGION'), 
-        choice(choices: ['t2.micro', 'm4.large', 'm5.large'], description: 'Please choose instance type', name: 'INSTANCE_TYPE'), 
-        ])])
-    
-    
+        choice(choices: ['t2.micro', 'm4.large', 'm5.large'], description: 'Please choose instance type', name: 'INSTANCE_TYPE')])])
     
     stage("Pull Repo"){
         ws ("tmp/"){
