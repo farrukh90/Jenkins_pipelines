@@ -16,8 +16,8 @@ node{
     stage("Download Terraform"){
         ws ("tmp/") {
             sh "terraform version"
-            sh "wget https://releases.hashicorp.com/terraform/0.12.19/terraform_0.12.19_linux_amd64.zip"
-            sh "unzip -o terraform_0.12.19_linux_amd64.zip"
+            //sh "wget https://releases.hashicorp.com/terraform/0.12.19/terraform_0.12.19_linux_amd64.zip"
+            //sh "unzip -o terraform_0.12.19_linux_amd64.zip"
             sh "./terraform version"
         }
     }
