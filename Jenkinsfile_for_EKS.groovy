@@ -31,7 +31,7 @@ node{
                 sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl"
                 sh "chmod +x kubectl"
                 sh "sudo cp -f kubectl /bin"
-
+            }
         }
     }
     stage("Set Backend"){
