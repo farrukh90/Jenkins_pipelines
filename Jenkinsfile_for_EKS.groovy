@@ -12,9 +12,15 @@ node{
     }
     stage("Download Terraform"){
         ws ("tmp/") {
-            //sh "wget https://releases.hashicorp.com/terraform/0.12.19/terraform_0.12.19_linux_amd64.zip"
-            //sh "unzip -o terraform_0.12.19_linux_amd64.zip"
-            sh "./terraform version"
+            def exists = fileExists 'terraform'
+            if (exists) {
+                echo 'terraform exists'
+            } else {
+                sh "wget https://releases.hashicorp.com/terraform/0.12.19/terraform_0.12.19_linux_amd64.zip"
+                sh "unzip -o terraform_0.12.19_linux_amd64.zip"
+                sh "./terraform version"
+            }
+            
         }
     }
     stage("Set Backend"){
