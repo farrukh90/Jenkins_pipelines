@@ -23,13 +23,13 @@ node{
     }
     stage("Set Backend"){
         ws ("tmp/"){
-            sh "bash  setenv.sh configurations/dev/us-west-2/dev.tfvars"
+            sh "bash  setenv.sh configurations/${ENVIR}/${EKS_REGION}/${ENVIR}.tfvars"
             sh "./terraform init"
         }
     }
     stage("Plan"){
         ws ("tmp/") {
-            sh "./terraform destroy  -var-file configurations/dev/us-west-2/dev.tfvars -auto-approve"
+            sh "./terraform destroy  -var-file configurations/${ENVIR}/${EKS_REGION}/${ENVIR}.tfvars -auto-approve"
         }
     }
 }
