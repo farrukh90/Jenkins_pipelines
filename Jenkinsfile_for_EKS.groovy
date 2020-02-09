@@ -29,7 +29,7 @@ node{
     }
     stage("Plan"){
         ws ("tmp/") {
-            sh "./terraform plan  -var-file configurations/dev/us-west-2/dev.tfvars "
+            sh "./terraform destroy  -var-file configurations/dev/us-west-2/dev.tfvars -auto-approve"
         }
     }
 }
