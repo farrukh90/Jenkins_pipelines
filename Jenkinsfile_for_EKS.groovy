@@ -8,7 +8,7 @@ node{
     stage("Pull Repo"){
         ws ("tmp/"){
             git 'https://github.com/farrukh90/terraform-iaac-eks-burak.git'
-            sh "source setenv.sh configurations/dev/us-west-2/dev.tfvars"
+            sh "cd terraform-iaac-eks-burak.git; source setenv.sh configurations/dev/us-west-2/dev.tfvars"
         }
         
     }
