@@ -2,7 +2,8 @@ node{
     properties(
         [
         parameters([ 
-        string(defaultValue: 'apply', description: 'Type your action e.g apply or destroy', name: 'ACTION', trim: false)])])
+        string(defaultValue: 'apply', description: 'Type your action e.g apply or destroy', name: 'ACTION', trim: false),
+        choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Please choose an environment', name: 'ENVIR')])])
     stage("Pull Repo"){
         ws ("tmp/"){
             git 'https://github.com/farrukh90/terraform-iaac-eks-burak.git'
@@ -17,13 +18,13 @@ node{
     }
     stage("Set Backend"){
         ws ("tmp/"){
-            sh "bash  setenv.sh configurations/dev/us-west-2/dev.tfvars"
+            sh "bash  setenv.sh configurations/${ENVIR}/${ENVIR}.tfvars"
             sh "./terraform init"
         }
     }
     stage("Plan"){
         ws ("tmp/") {
-            sh "./terraform ${ACTION}  -var-file configurations/dev/us-west-2/dev.tfvars -auto-approve"
+            sh "./terraform ${ACTION}  -var-file configurations/${ENVIR}/${ENVIR}.tfvars -auto-approve"
         }
     }
 }
