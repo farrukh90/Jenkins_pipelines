@@ -24,7 +24,7 @@ node{
     }
     stage("Download kubectl"){
         ws("tmp/"){
-            def exists = fileExists '/bin/kubectl'
+            def exists = fileExists '/tmp/kubectl'
             if (exists) {
                 echo 'kubectl exists'
             } else {
