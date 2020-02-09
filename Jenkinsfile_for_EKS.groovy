@@ -10,7 +10,7 @@ node{
             git 'https://github.com/farrukh90/terraform-iaac-eks-burak.git'
         }
     }
-    stage("Download Terraform"){
+    stage("Check Terraform"){
         ws ("tmp/") {
             def exists = fileExists './terraform'
             if (exists) {
@@ -20,7 +20,6 @@ node{
                 sh "unzip -o terraform_0.12.19_linux_amd64.zip"
                 sh "./terraform version"
             }
-            
         }
     }
     stage("Set Backend"){
