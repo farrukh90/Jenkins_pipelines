@@ -20,7 +20,7 @@ node{
     }
     stage("Set Backend"){
         ws ("tmp/"){
-            sh "./source setenv.sh configurations/dev/us-west-2/dev.tfvars"
+            sh "bash source setenv.sh configurations/dev/us-west-2/dev.tfvars"
             //sh "./terraform init"
         }
     }
