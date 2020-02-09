@@ -2,7 +2,6 @@ node{
     properties(
         [
         parameters([ 
-        string(defaultValue: 'dev', description: 'Please enter an environment', name: 'ENVIR', trim: false),
         string(defaultValue: 'apply', description: 'Type your action e.g apply or destroy', name: 'ACTION', trim: false)])])
     
     
