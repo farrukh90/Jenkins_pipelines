@@ -24,8 +24,14 @@ node{
     }
     stage("Download kubectl"){
         ws("tmp/"){
-            sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl"
-            sh "chmod +x kubectl"
+            def exists = fileExists '/bin/kubectl'
+            if (exists) {
+                echo 'kubectl exists'
+            } else {
+                sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl"
+                sh "chmod +x kubectl"
+                sh "sudo cp -f kubectl /bin"
+
         }
     }
     stage("Set Backend"){
