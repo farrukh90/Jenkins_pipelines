@@ -22,6 +22,12 @@ node{
             }
         }
     }
+    stage("Download kubectl"){
+        ws("tmp/"){
+            sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl"
+            sh "chmod +x kubectl"
+        }
+    }
     stage("Set Backend"){
         ws ("tmp/"){
             sh "bash  setenv.sh configurations/${ENVIR}/${ENVIR}.tfvars"
