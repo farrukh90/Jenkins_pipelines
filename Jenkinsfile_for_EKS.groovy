@@ -3,9 +3,6 @@ node{
         [
         parameters([ 
         string(defaultValue: 'apply', description: 'Type your action e.g apply or destroy', name: 'ACTION', trim: false)])])
-    
-    
-    
     stage("Pull Repo"){
         ws ("tmp/"){
             git 'https://github.com/farrukh90/terraform-iaac-eks-burak.git'
@@ -27,7 +24,7 @@ node{
     }
     stage("Plan"){
         ws ("tmp/") {
-            sh "./terraform destroy  -var-file configurations/dev/us-west-2/dev.tfvars -auto-approve"
+            sh "./terraform ${ACTION}  -var-file configurations/dev/us-west-2/dev.tfvars -auto-approve"
         }
     }
 }
