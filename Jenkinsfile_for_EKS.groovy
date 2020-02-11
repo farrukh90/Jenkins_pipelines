@@ -34,6 +34,19 @@ node{
             }
         }
     }
+    // Needed for Unit Test
+    stage("Download kubectl"){
+        ws("tmp/"){
+            def exists = fileExists '/tmp/kubectl'
+            if (exists) {
+                echo 'kubectl exists'
+            } else {
+                sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl"
+                sh "chmod +x kubectl"
+                sh "cp -f kubectl /tmp"
+            }
+        }
+    }
     stage("Set Backend"){
         ws ("tmp/"){
             sh "bash  setenv.sh configurations/${ENVIR}/${ENVIR}.tfvars"
