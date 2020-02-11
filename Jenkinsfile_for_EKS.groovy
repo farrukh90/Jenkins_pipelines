@@ -1,15 +1,15 @@
 node{
-    // properties(
-    //     [
-    //     parameters([ 
-    //     choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Please choose an environment', name: 'ENVIR'),
-    //     string(defaultValue: 'apply', description: 'Type your action e.g apply or destroy', name: 'ACTION', trim: false),
-    //     ])])
-    // stage("Pull Repo"){
-    //     ws ("tmp/"){
-    //         git 'https://github.com/farrukh90/terraform-iaac-eks-burak.git'
-    //     }
-    // }
+    properties(
+        [
+        parameters([ 
+        choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Please choose an environment', name: 'ENVIR'),
+        string(defaultValue: 'apply', description: 'Type your action e.g apply or destroy', name: 'ACTION', trim: false),
+        ])])
+    stage("Pull Repo"){
+        ws ("tmp/"){
+            git 'https://github.com/farrukh90/terraform-iaac-eks-burak.git'
+        }
+    }
     stage("Check Terraform"){
         ws ("tmp/") {
             def exists = fileExists './terraform'
